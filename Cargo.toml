@@ -1,0 +1,29 @@
+[package]
+name = "repoman"
+version = "1.0.0"
+edition = "2021"
+description = "CLI tool to manage organization repositories"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+
+[[bin]]
+name = "repoman"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+tokio = { version = "1.35", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+colored = "2.1"
+indicatif = "0.17"
+dialoguer = "0.11"
+anyhow = "1.0"
+git2 = "0.18"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
